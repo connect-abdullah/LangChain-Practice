@@ -34,6 +34,7 @@ output = ChatPromptTemplate.from_template(
     "Return ONLY the following text inside double quotes: {input}")
 
 # calling each by their own chain and getting their responses from llm
+# Prompt -> LLM (Get Response) -> Parsed -> Prompt ...
 summarize_chain = summarize | llm | parser
 translate_chain = translate | llm | parser
 rephrase_chain = rephrase | llm | parser

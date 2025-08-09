@@ -21,9 +21,10 @@ def call_prompt():
         ("system", "Tell me a joke about following word"),
         ("human", "{input}")
     ])
-
+    # setting up parser
     parser = StrOutputParser()
     
+    # then passing the response to parser to get parsed and show the output formatted
     chain = prompt | llm | parser
 
 
