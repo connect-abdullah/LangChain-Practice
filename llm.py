@@ -11,7 +11,7 @@ llm=ChatOpenAI(model_name="openai/gpt-3.5-turbo",
                temperature=0.7,
                max_tokens=500,
                )
-
+a
 response=llm.invoke("Hello, how are you?")
 print(response.content)
 
