@@ -2,6 +2,9 @@ from langchain_openai import ChatOpenAI
 from langchain_core.prompts import ChatPromptTemplate
 import os
 from dotenv import load_dotenv
+from langchain_core.output_parsers import CommaSeparatedListOutputParser
+
+parser = CommaSeparatedListOutputParser()
 
 load_dotenv()
 
@@ -29,10 +32,10 @@ prompt = ChatPromptTemplate.from_messages([
 ])
 
 # We will then create a chain
-chain = prompt | llm 
+chain = prompt | llm | parser
     # output  -> input 
 # In a chain, the output of the first component is passed as input to the next component using the | operator, allowing data to flow sequentially through each step.
 
 response = chain.invoke({"input" : "happy"})
 
-print(response.content)
+print(response)
