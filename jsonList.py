@@ -30,7 +30,7 @@ def extract_info():
     class Person(BaseModel):
         name : str = Field(description="Name of the person")
         age : int = Field(description="Age of the person")
-        university : int = Field(description="University Name")
+        university : str = Field(description="University Name")
         
     
     # Setting the json parser with pydantic object of person to use the saqme schema while parsing
@@ -40,7 +40,7 @@ def extract_info():
     chain = prompt | llm | parser 
     
     return chain.invoke({
-        "phrase" : "Aima is 20 years old and she studies in COMSATS University Islamabad",
+        "phrase" : "Micheal is 30 years old and he studies in COMSATS University Islamabad",
         "follow_instructions" : parser.get_format_instructions()
     })
 
